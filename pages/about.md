@@ -1,14 +1,14 @@
 ---
 layout: page
 title: About
-description: 打码改变世界
-keywords: Zhuang Ma, 马壮
+description: 你只管努力，剩下的交给天意
+keywords:  liusCoding, liushuai
 comments: true
 menu: 关于
 permalink: /about/
 ---
 
-我是马壮，码而生，码而立。
+我是刘帅，湖南某渣渣二本计算机科学与技术毕业，现于深圳某坑爹公司从事Java开发。
 
 仰慕「优雅编码的艺术」。
 
