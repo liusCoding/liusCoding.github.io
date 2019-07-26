@@ -81,7 +81,7 @@ collections:
     output: true
     permalink: /wiki/:path/
 
-repository: mzlogin/mzlogin.github.io
+repository: liucoding/liucoding.github.io
 
 # ---------------- #
 #      Comments    #
@@ -96,14 +96,14 @@ disqus:
 # https://imsun.net/posts/gitment-introduction/
 gitment:
   owner: liusCoding
-  repo: blog-comments
+  repo: liucoding.github.io
   oauth:
     client_id: 934cda4097e98c0587cf
     client_secret: 42cf7fbf3e99e0075d5f3c8baeb38361684dfef4
 # https://github.com/gitalk/gitalk#install
 gitalk:
   owner: liusCoding
-  repo: blog-comments
+  repo: liucoding.github.io
   clientID: 901e6964484b305c0537
   clientSecret: d6b2140ffb89a65033ddc5e7e120f4161a6dd706
 # 在使用其它评论组件时可点击显示 Disqus
