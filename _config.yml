@@ -2,7 +2,7 @@
 #   Main Configs   #
 # ---------------- #
 baseurl:
-#url: https://mazhuang.org
+url: https://liuscoding.cn
 date_format: "ordinal"
 title:  刘帅Java工程师
 subtitle: "你只管努力，剩下的交给给天意！！！"
