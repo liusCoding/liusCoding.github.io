@@ -81,7 +81,7 @@ collections:
     output: true
     permalink: /wiki/:path/
 
-repository: liucoding/liucoding.github.io
+repository: liuCoding/liucoding.github.io
 
 # ---------------- #
 #      Comments    #
