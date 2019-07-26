@@ -33,29 +33,32 @@ Java容器主要可以划分为5个部分，List,Set，Map,Iterator，Enumeratio
 
 **List结构图**
 ![listTaxonomy.png](https://gitee.com/chenssy/blog-home/raw/master/image/series-images/Java8-util/listTaxonomy.png)
-**List介绍**
+<br>
+**List介绍**<br>
 一个**有序**Collection,元素可以重复,有序存放。确切的说，列表通常允许满足object.equals(object2)。实现List接口有：ArrayList,LinkedList,Vector,Stack等。
 
 ### Set介绍
-
+<br>
 **Set结构图**
 ![setTaxonomy.png](https://gitee.com/chenssy/blog-home/raw/master/image/series-images/Java8-util/setTaxonomy.png)
-
+<br/>
 **Set**介绍
 一个**不允许重复元素**的collection,是一种无序的集合。Set不可以object.equals(object2)。实现Set的接口有：EnumSet，HashSet,TreeSet等。
 
 ### Queue介绍
-
+<br>
 **Queue结构图**
 ![1182892-20171122100317930-842768608.png](https://images2017.cnblogs.com/blog/1182892/201711/1182892-20171122100317930-842768608.png)
+<br/>
 **介绍Queue**
 queue是用来模拟队列这种数据结构，队列通常是指“**先进先出**”的容器。新元素插入到队列的尾部，访问元素操作会返回队列头部的元素。
 通常队列不允许随机访问队列中的元素，这种结构就像我们生活中的排队一样。
 
 ### Map介绍
-
+<br/>
 **Map结构图**
 ![MapClassHierarchy-600x354_thumb.jpg](http://www.bysocket.com/wp-content/uploads/2015/03/MapClassHierarchy-600x354_thumb.jpg)
+<br/>
 ** Map介绍 **
 Map是一个键值对的集合。它的每一个元素都包含一对键对象和值对象，每个键最多映射到一个值。它没有继承Collection接口。
 实现Map的有：HashMap，TreeMap，HashTable,Properties,EnumMap。
