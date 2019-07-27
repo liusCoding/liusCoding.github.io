@@ -1,14 +1,14 @@
 ---
 layout: page
 title: About
-description: 你只管努力，剩下的交给天意
+description: 个人博客，属于我的技术小世界！
 keywords:  liusCoding, liushuai
 comments: true
 menu: 关于
 permalink: /about/
 ---
 
-我是刘帅，湖南某渣渣二本计算机科学与技术毕业，现于深圳某坑爹公司从事Java开发。
+我叫刘帅，我是一个90后的程序员，通过这个博客网站，用它记录学习和生活的点点滴滴，我勉励自己，一定不能偷懒，学无止境。
 
 仰慕「优雅编码的艺术」。
 
