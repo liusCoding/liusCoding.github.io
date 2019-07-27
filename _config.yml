@@ -104,8 +104,8 @@ gitment:
 gitalk:
   owner: liusCoding
   repo: blog-comments
-  clientID: 901e6964484b305c0537
-  clientSecret: d6b2140ffb89a65033ddc5e7e120f4161a6dd706
+  clientID: ea146d47b9e7598ff2ad
+  clientSecret: 68bf7217421fdced0c771f5592452fa82069c177
 # 在使用其它评论组件时可点击显示 Disqus
 lazy_load_disqus : false
 
