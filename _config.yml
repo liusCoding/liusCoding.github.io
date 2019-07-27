@@ -98,8 +98,8 @@ gitment:
   owner: liusCoding
   repo: blog-comments
   oauth:
-    client_id: 934cda4097e98c0587cf
-    client_secret: 42cf7fbf3e99e0075d5f3c8baeb38361684dfef4
+    client_id: 152eece10236aa642272
+    client_secret: 50132d83d73c877755c8a01e64a860088af92af2
 # https://github.com/gitalk/gitalk#install
 gitalk:
   owner: liusCoding
