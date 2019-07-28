@@ -70,14 +70,23 @@ Idea的<b>`Ctrl+N/Ctrl+Shift+N`<b/>可以打开类或资源。新版本的IDEA�
 
 ## 7.最终排行版
 1.重构一切：`Ctrl+Shift+Alt+T`
+
 2.自我修复：`Alt+Enter`
+
 3.智能补全：`Ctrl+Shift+Space`
+
 4.创造万物：`Alt+Insert`
+
 5.自动完成：`Ctrl+Shift+Enter`
+
 6.无处藏身：`Shift+Shift`
+
 7.发号施令：`Ctrl+Shift+A`
+
 10.切来切去：`Ctrl+Tab`
+
 11.代码生成：`Template/Postfix +Tab`
+
 12.选你所想：`Ctrl+W`
 
 
