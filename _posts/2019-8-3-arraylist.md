@@ -13,7 +13,7 @@ ArrayList是我们开发中最常用的数据存储容器之一，其底层是�
 ArrayList是我们开发中最常用的数据存储容器之一，其底层是数组实现的，我们可以在集合中存储任意类型的数据，ArrayList是线程不安全的，非常适用于对元素进行查找，效率非常高。
 
 ## 2.继承体系
-![ArrayList继承图](https://mmbiz.qpic.cn/mmbiz_png/C91PV9BDK3yUT9hffoWkuTicrshhl1d9JkxvvXoUmvsSzErEeTCcxTnYkYAgWexziaCbpcclHf0ocGhxBJdxlXqA/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![Markdown](http://i2.tiimg.com/695115/5651fe88f116b242.png)
 
 ArrayList实现List、RandomAccess、Cloneable、Serializable等接口。
 
@@ -433,7 +433,7 @@ size + 1代表的含义是：
 
     示例：大小为6，调用我们add(2,element)方法，则会从指数= 2+1=3的位置开始，将数组元素替换为从索引起始位置为index=2，为长度6-2=4的数据。
 
-![640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1](https://mmbiz.qpic.cn/mmbiz_png/eQPyBffYbudHYyNAARjB51oR4sFRGZ3MC3pae6zZZ9lctHhdlNzBywNz6LtYleticZPAdvN1fSpfxsNCUzryoOQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![Markdown](http://i2.tiimg.com/695115/01b2d70fed0d624f.png)
 
 ### addAll(Collection c)方法
 求两个集合的并集。
