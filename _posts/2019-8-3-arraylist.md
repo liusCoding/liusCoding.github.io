@@ -13,7 +13,7 @@ ArrayList是我们开发中最常用的数据存储容器之一，其底层是�
 ArrayList是我们开发中最常用的数据存储容器之一，其底层是数组实现的，我们可以在集合中存储任意类型的数据，ArrayList是线程不安全的，非常适用于对元素进行查找，效率非常高。
 
 ## 2.继承体系
-![Markdown](http://i2.tiimg.com/695115/5651fe88f116b242.png)
+![Markdown](https://imgconvert.csdnimg.cn/aHR0cDovL2kyLnRpaW1nLmNvbS82OTUxMTUvNTY1MWZlODhmMTE2YjI0Mi5wbmc)
 
 ArrayList实现List、RandomAccess、Cloneable、Serializable等接口。
 
@@ -28,7 +28,7 @@ ArrayList实现List、RandomAccess、Cloneable、Serializable等接口。
 
 ## 4.源码分析
 
-```
+```java
     /**
      * Default initial capacity.
      * 
@@ -87,7 +87,7 @@ ArrayList实现List、RandomAccess、Cloneable、Serializable等接口。
 有了`transient`关键字声明，`transient Object[] elementData`,事实上我们使用ArrayList在网络传输的时候很正常，并没有出现空值,为什么呢?
 
 看源码：
-```
+```java
  private void writeObject(java.io.ObjectOutputStream s)
         throws java.io.IOException{
         // Write out element count, and any hidden stuff
@@ -164,7 +164,7 @@ ArrayList实现List、RandomAccess、Cloneable、Serializable等接口。
 `elementData`定义为`transient`的优势，自己根据size序列化真实的元素，而不是根据数组的长度序列化元素，`elementData`是一个缓存数组，它通常会预留一些容量，等容量不足时再扩充容量，那么有些空间可能就没有实际存储元素，采用上述的方式来实现序列化，就可以保证只序列化实际存储的那些元素，而不是整个数组，从而节省空间。
 
 ### ArrayList(int initialCapacity)构造方法
-```
+```java
 
  /**
      * Constructs an empty list with the specified initial capacity.
@@ -189,7 +189,7 @@ ArrayList实现List、RandomAccess、Cloneable、Serializable等接口。
 ```
 
 ### ArrayList（）构造方法分析
-```
+```java
  /**
      * Constructs an empty list with an initial capacity of ten.
      */
@@ -202,7 +202,7 @@ ArrayList实现List、RandomAccess、Cloneable、Serializable等接口。
 ```
 
 ### ArrayList(Collection c) 构造方法分析
-```
+```java
  /**
      * Constructs a list containing the elements of the specified
      * collection, in the order they are returned by the collection's
@@ -230,7 +230,7 @@ ArrayList实现List、RandomAccess、Cloneable、Serializable等接口。
 ```
 
 为什么c.toArray();返回的有可能不是Object[]类型呢？请看下面的代码：
-```
+```java
 public class ArrayTest {
 
     public static void main(String[] args) {
@@ -260,7 +260,7 @@ class MyList extends ArrayList<String>{
 
 ### add(E e)的方法
     在数组的末尾追加元素,平均时间复杂度为O(1)。
-```
+```java
 
 
     /**
@@ -281,7 +281,7 @@ class MyList extends ArrayList<String>{
     
 ```
 它首先调用了ensureCapacityInternal(size + 1)方法。注意参数大小是+1 ,这个是面试考点。
-```
+```java
  private void ensureCapacityInternal(int minCapacity) {
         ensureExplicitCapacity(calculateCapacity(elementData, minCapacity));
     }
@@ -304,7 +304,7 @@ class MyList extends ArrayList<String>{
 
 如果`size+1 > elementData.length`证明数组已经放满，则增加容量，调用grow()
     
-```
+```java
     private void ensureExplicitCapacity(int minCapacity) {
         modCount++;
 
@@ -322,7 +322,7 @@ class MyList extends ArrayList<String>{
 4.如果新容量比最大值还要大，则将新容量赋值为最大值。
 5.以新容量拷贝出来一个新的数组赋值给elementData
 
-```
+```java
  /**
      * Increases the capacity to ensure that it can hold at least the
      * number of elements specified by the minimum capacity argument.
@@ -356,7 +356,7 @@ class MyList extends ArrayList<String>{
             MAX_ARRAY_SIZE;
     }
 
-```
+```java
 ** size+1 的问题** 
     好了,到这里说一下为什么要size+1?
   
@@ -367,13 +367,13 @@ size + 1代表的含义是：
 假如不size+1处理，如果默认大小是0，则0 + 0 >> 1还是0。
 如果size是1，则1 + 1 >> 1还是1。有人问：不是默认容量大小是10吗? 事实上，jdk1.8版本以后，ArrayList中的扩容放在add()方法中。之前放在构造方法中。我用的是1.8版本，默认所以ArrayList arrayList = new ArrayList();size应该是0。所以,size+ 1对扩容来讲很必要。
 
-![Markdown](http://i1.fuimg.com/695115/ccf37698e32acaa8.png)
+![Markdown](https://imgconvert.csdnimg.cn/aHR0cDovL2kxLmZ1aW1nLmNvbS82OTUxMTUvY2NmMzc2OThlMzJhY2FhOC5wbmc)
 事实上上面的代码是证明不了容量大小的，因为size在只会调用add()方法时才会自增。
 
 ### add（int index，E element）方法
 添加元素到指定位置，平均时间复杂度为O(n)。
 
-```
+```java
  /**
      * Inserts the specified element at the specified position in this
      * list. Shifts the element currently at that position (if any) and
@@ -403,7 +403,7 @@ size + 1代表的含义是：
 ```
 在这里说一下 `System.arraycopy(elementData, index, elementData, index + 1,
                          size - index)方法`：
-```
+```java
     /* @param      src      the source array.
      * @param      srcPos   starting position in the source array.
      * @param      dest     the destination array.
@@ -433,11 +433,11 @@ size + 1代表的含义是：
 
     示例：大小为6，调用我们add(2,element)方法，则会从指数= 2+1=3的位置开始，将数组元素替换为从索引起始位置为index=2，为长度6-2=4的数据。
 
-![Markdown](http://i2.tiimg.com/695115/01b2d70fed0d624f.png)
+![Markdown](https://imgconvert.csdnimg.cn/aHR0cDovL2kyLnRpaW1nLmNvbS82OTUxMTUvMDFiMmQ3MGZlZDBkNjI0Zi5wbmc)
 
 ### addAll(Collection c)方法
 求两个集合的并集。
-```
+```java
 public boolean addAll(Collection<? extends E> c) {
         //将集合c转为数组
         Object[] a = c.toArray();
@@ -456,7 +456,7 @@ public boolean addAll(Collection<? extends E> c) {
 ###  get（int index）方法
 获取指定索引位置的元素，时间复杂度为O(1)。
 
-```
+```java
   public E get(int index) {
         //检查元素是否越界
         rangeCheck(index);
@@ -479,7 +479,7 @@ public boolean addAll(Collection<? extends E> c) {
 ### remove(int index)方法
 删除指定索引位置的元素，时间复杂度为O(n)。
 
-```
+```java
  public E remove(int index) {
             
         // 检查是否越界
@@ -518,7 +518,7 @@ public boolean addAll(Collection<? extends E> c) {
 
 删除指定元素值的元素，时间复杂度为O(n)
 
-```
+```java
  public boolean remove(Object o) {
         if (o == null) {
             for (int index = 0; index < size; index++)
@@ -565,7 +565,7 @@ fastRemove(int index)相对于remove(int index)少了检查索引越界的操作
 
 求两个集合的交集。
 
-```
+```java
  public boolean retainAll(Collection<?> c) {
         // 集合c不能为null
         Objects.requireNonNull(c);
@@ -639,7 +639,7 @@ fastRemove(int index)相对于remove(int index)少了检查索引越界的操作
 ### removeAll(Collection c)
 求两个集合的单方向差集，只保留当前集合中不在c中的元素，不保留在c中不在当前集体中的元素。
 
-```
+```java
  public boolean removeAll(Collection<?> c) {
         
      // 集合c不能为空
@@ -686,7 +686,7 @@ fastRemove(int index)相对于remove(int index)少了检查索引越界的操作
     
 ##  最后最后：手写阉割版 ArrayList
 
-```
+```java
 public class MyArrayList {
 
     // 非私有，以简化嵌套类访问
