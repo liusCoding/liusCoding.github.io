@@ -1,9 +1,9 @@
 ---
 layout: post
 title: 深度分析ArrayList源码
-categories: ArrayList
+categories: java
 description: ArrayList分析。
-keywords: Java
+keywords: ArrayList
 ---
 
 ArrayList是我们开发中最常用的数据存储容器之一，其底层是数组实现的，我们可以在集合中存储任意类型的数据,那麽它的源码是怎么实现的呢。
