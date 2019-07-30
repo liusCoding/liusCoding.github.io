@@ -356,7 +356,7 @@ class MyList extends ArrayList<String>{
             MAX_ARRAY_SIZE;
     }
 
-```java
+```
 ** size+1 的问题** 
     好了,到这里说一下为什么要size+1?
   
