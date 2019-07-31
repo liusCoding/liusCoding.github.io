@@ -1,4 +1,12 @@
-# 深度分析Idea  Debug的使用
+---
+layout: post
+title: 深度分析Idea  Debug的使用
+categories: Idea
+description: 写的第一篇博客。
+keywords: Idea,Debug
+---
+
+熟练掌握Idea  Debug的使用
 
 ## 一、Idea Debug 介绍
 
