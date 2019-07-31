@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 深度分析Idea  Debug的使用
+title: 这一次彻底掌握Intellij IDEA中Debug的使用
 categories: Idea
 description: 写的第一篇博客。
 keywords: Idea,Debug
@@ -20,16 +20,16 @@ keywords: Idea,Debug
 8. Watches：查看变量，可以将Variables区中的变量拖到Watches中查看 
 
 
-`图1.1`
+图1.1
 ![Markdown](http://i2.tiimg.com/695115/4a3fadf30a61c565.png)
 
-`图1.2`在设置里勾选Show debug window on breakpoint，则请求进入到断点后自动激活Debug窗口
+图1.2在设置里勾选Show debug window on breakpoint，则请求进入到断点后自动激活Debug窗口
 ![Markdown](http://i2.tiimg.com/695115/0dbf8fa20806fa1d.png)
 
-`图1.3`如果你的IDEA底部没有显示工具栏或状态栏，可以在View里打开，显示出工具栏会方便我们使用。可以自己去尝试下这四个选项。
+图1.3如果你的IDEA底部没有显示工具栏或状态栏，可以在View里打开，显示出工具栏会方便我们使用。可以自己去尝试下这四个选项。
 ![Markdown](http://i2.tiimg.com/695115/7ac7cc20b16a804e.png)
 
-`图1.4`菜单栏Run里有调试对应的功能，同时可以查看对应的快捷键。
+图1.4菜单栏Run里有调试对应的功能，同时可以查看对应的快捷键。
 
 ![QQ截图20190731101326.png](https://i.loli.net/2019/07/31/5d40fc64dd96534624.png)
 
@@ -118,9 +118,9 @@ Debug调试的功能主要对应着图一中4和5两组按钮：
 
 通常，当我们在遍历一个比较大的集合或数组时，在循环内设置了一个断点，难道我们要一个一个去看变量的值？那肯定很累，说不定你还错过这个值得重新来一次
 
-1.在断点上右键直接设置当前断点的条件，如下图，我设置i==3时断点才生效。
+1.在断点上右键直接设置当前断点的条件，如下图，我设置b==false时断点才生效。
 
-
+![QQ截图20190731172904.png](https://i.loli.net/2019/07/31/5d4172398fda011274.png)
 
 2.点击View Breakpoints (Ctrl + Shift + F8)，查看所有断点。
 
@@ -137,9 +137,8 @@ Debug调试的功能主要对应着图一中4和5两组按钮：
    ![QQ截图20190731174457.png](https://i.loli.net/2019/07/31/5d416329055af30083.png)
 
 3.再说下其他三个的功能，一般情况不用
-Instance filters：实例过滤。
+Instance filters：实例过滤
 
-Class filters：类过滤，根据类名过滤。.
+Class filters：类过滤，根据类名过滤
 
 Pass count：用于循环中，如果断点在循环中，可以设置该值，循环多少次后停在断点处，之后的循环都会停在断点处。
-
