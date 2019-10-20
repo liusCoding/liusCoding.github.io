@@ -16,9 +16,6 @@
 
 
 
-
-
-
 <!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
@@ -231,8 +228,166 @@
 
 
 
+$(".kechengBanner").click(function(){
+$(".MaskWrap").show();
+})
+$(".zhidao").click(function(){
+$(".MaskWrap").hide();
+})
+
+</script>
+
+
+
+<!--引入埋点文件-->
 
 
 
 
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title> </title>
+
+
+
+
+
+
+    <script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js" type="text/javascript"></script>
+<script src="/Public/xun/groupBuy/img/jquery-1.11.1.min.js"></script>
+<script type="text/javascript">
+
+    var userId = $("#userId").val();
+    var pag = $("#pag").val();
+    var readtime = JSON.stringify({'uid':userId,'pag':pag});
+    console.log(readtime);
+    setInterval(function(){
+
+        $.ajax({
+            type:"POST",    // 请求类型
+            dataType:"json",    // 数据返回类型
+            url:"http://39.104.178.151:8082/cls/cls/readtime",    // 请求URL
+            data:readtime,
+            // 在没有域名的情况下，需要标注一下是json格式，否则无法识别
+            contentType: 'application/json;charset=UTF-8',
+            success:function(data){    // 成功返回的结果(响应)
+                console.log(data);
+            }
+        });
+
+    },20000);
+
+
+
+
+</script>
+<!--引入分享文件-->
+
+
+
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<title> </title>
+
+
+
+
+
+
+<script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js" type="text/javascript"></script>
+<script src="/Public/xun/groupBuy/img/jquery-1.11.1.min.js"></script>
+<script type="text/javascript">
+
+    var userId = $("#userId").val();
+    var typeId = $("#typeId").val();
+    var pag = $("#pag").val();
+
+
+    // 分享
+
+    function WeChat(url,title,img,desc){
+        $.get("/index.php/Home/Index/Test.html",{url:window.location.href},function(data) {
+            var res =  JSON.parse( data );
+
+
+            wx.config({
+                debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                appId: res.appId, // 必填，公众号的唯一标识
+                timestamp: res.timestamp, // 必填，生成签名的时间戳
+                nonceStr: res.nonceStr, // 必填，生成签名的随机串
+                signature:res.signature,// 必填，签名
+                jsApiList: ['onMenuShareTimeline','onMenuShareAppMessage']// 必填，需要使用的JS接口列表
+            });
+
+        });
+
+        wx.ready(function () {
+            // alert(desc);
+            //转发给朋友
+            wx.onMenuShareAppMessage({
+                title: title,
+                desc: desc,
+                link: url,
+                imgUrl: img,
+                type: 'link',
+                dataUrl: '',
+                success: function () {
+                    ////console.log('转发成功');
+
+                    shareFriend('1');
+                },
+                cancel: function () {
+                    ////console.log('转发失败');
+                }
+            });
+            wx.onMenuShareTimeline({
+                // alert(title);
+                title: title, // 分享标题
+                link: url, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                imgUrl: img, // 分享图标
+                success: function () {
+                    // 用户点击了分享后执行的回调函数
+
+                    shareFriend('2');
+                }
+            });
+        });
+    }
+    // WeChat("http://xiaobai.yaocaiwuziyou.com/index.php/Home/OldTest/Gan?type=301&id=275349&num=3","","http://xiaobai.yaocaiwuziyou.com/Site/weimiaoLOGO.jpg","微淼商学院");
+    // WeChat("http://xiaobai.yaocaiwuziyou.com/index.php/Home/OldTest/Gan?type=301&id=275349&num=3","","http://xiaobai.yaocaiwuziyou.com/Site/yaoqing.png","你不理财，财不理你");
+    WeChat("http://xiaobai.yaocaiwuziyou.com/index.php/Home/OldTest/Gan?type=301&id=275349&num=3","","http://xiaobai.yaocaiwuziyou.com/Site/weimiaoLOGO.jpg","微淼商学院");
+
+    function shareFriend(x){
+        console.log(x);
+
+        // var datashares = JSON.stringify({'uid':userId,'channel':typeId,'pag':pag,'share':x});
+        var datashares = JSON.stringify({'uid':userId,'pag':pag,'share':x});
+        console.log(datashares);
+
+        $.ajax({
+            type:"POST",    // 请求类型
+            dataType:"json",    // 数据返回类型
+            url:"http://39.104.178.151:8082/datashares/datashares/share",    // 请求URL
+            data:datashares,
+            // 在没有域名的情况下，需要标注一下是json格式，否则无法识别
+            contentType: 'application/json;charset=UTF-8',
+            success:function(data){    // 成功返回的结果(响应)
+                console.log(data);
+            }
+        });
+
+    }
+
+</script>
+
+<script type="text/javascript">
+    (function(){
+        var width = document.documentElement.clientWidth;
+        var styleN = document.createElement('style');
+        styleN.innerHTML = 'html{font-size: '+ width/16 +'px !important;}';
+        document.head.appendChild(styleN);
+    })();
+
+</script>
 </body></html>
