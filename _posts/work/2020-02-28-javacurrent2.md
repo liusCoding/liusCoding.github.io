@@ -7,6 +7,7 @@ keywords: Java, Java并发编程
 ---
 
 
+
 模拟并发叫号程序：
 ```java
 public class TicketDemo extends Thread{
@@ -42,9 +43,8 @@ public class TicketDemo extends Thread{
 
 ```
 
-![1577524785293-9bd0d9ac-847f-44b2-bb13-2dc9b0b8662e.png](https://cdn.nlark.com/yuque/0/2019/png/440247/1577524785293-9bd0d9ac-847f-44b2-bb13-2dc9b0b8662e.png)
-
-
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20191229144500940.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xpdXNodWFpNTIwMTM=,size_16,color_FFFFFF,t_70)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20191229144513932.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xpdXNodWFpNTIwMTM=,size_16,color_FFFFFF,t_70)
 
 并发叫号：
 static关键字 把变量放到主存，作为共享变量: 并发比较大的时候会出现：跳号、重号、超过最大值
@@ -170,10 +170,10 @@ public class TestSynchronized {
 
 JVM 工具   Jconsole
 Waiting  线程已经准备运行
-![1577528679451-6b6f1799-d875-4201-842c-611d1ec855fc.png](https://cdn.nlark.com/yuque/0/2019/png/440247/1577528679451-6b6f1799-d875-4201-842c-611d1ec855fc.png)
 
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20191229144541396.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xpdXNodWFpNTIwMTM=,size_16,color_FFFFFF,t_70)
 Blocked   线程阻塞
-![1577528699202-7c8850a5-c39a-4694-823b-59ff9804cacc.png](https://cdn.nlark.com/yuque/0/2019/png/440247/1577528699202-7c8850a5-c39a-4694-823b-59ff9804cacc.png)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20191229144551561.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xpdXNodWFpNTIwMTM=,size_16,color_FFFFFF,t_70)
 
 2. JVM指令分析
 
@@ -181,9 +181,8 @@ javap -v  类名（TestSynchronized）
 
 **synchronized修饰代码块加锁原理**
 
-![1577598981782-1adfb158-f882-4276-bf0f-0f2e49bfae3f.png](https://cdn.nlark.com/yuque/0/2019/png/440247/1577598981782-1adfb158-f882-4276-bf0f-0f2e49bfae3f.png)
-
-![1577602219995-f2be0788-ec20-4660-8850-51c63230d6c0.png](https://cdn.nlark.com/yuque/0/2019/png/440247/1577602219995-f2be0788-ec20-4660-8850-51c63230d6c0.png)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20191229144612381.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xpdXNodWFpNTIwMTM=,size_16,color_FFFFFF,t_70)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20191229145034214.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xpdXNodWFpNTIwMTM=,size_16,color_FFFFFF,t_70)
 monitorenter  互斥入口
 - 当moniter为0的时候进入，进入后monitor+1，可以重入，monitor被当前线程占有，其它线程请求时会进入Blocked状态，直到monitor为0的时候才能进入
 monitorexit  互斥出口
@@ -193,7 +192,7 @@ monitorexit  互斥出口
 
 **synchronized修饰方法加锁原理**
 
-![1577599801364-5a9bf154-520a-4cdf-8843-34e04de4db1d.png](https://cdn.nlark.com/yuque/0/2019/png/440247/1577599801364-5a9bf154-520a-4cdf-8843-34e04de4db1d.png)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/2019122914485680.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xpdXNodWFpNTIwMTM=,size_16,color_FFFFFF,t_70)
 对方法加锁
 加标记：ACC_SYNCHRONIZED
 
@@ -206,16 +205,14 @@ ps:JDK1.6之前Synchronized关键字是重量锁
 
 
 ## 三、JVM对Synchronized的优化
-
-![1577600237767-bdb0d3f7-2dc4-4bd9-84d6-1251fca4e2a1.png](https://cdn.nlark.com/yuque/0/2019/png/440247/1577600237767-bdb0d3f7-2dc4-4bd9-84d6-1251fca4e2a1.png)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/2019122914505068.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xpdXNodWFpNTIwMTM=,size_16,color_FFFFFF,t_70)
 
 一个对象的实例包含：对象头、实例变量、对齐填充
 
 对象头：是加锁的基础
 
 对象头占4个字节，32位
-
-![1577600671173-8a594389-19f7-4766-a3ab-1c101626de4d.jpeg](https://cdn.nlark.com/yuque/0/2019/jpeg/440247/1577600671173-8a594389-19f7-4766-a3ab-1c101626de4d.jpeg)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20191229145102609.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xpdXNodWFpNTIwMTM=,size_16,color_FFFFFF,t_70)
 JVM 对synchronized的优化：
 偏向锁
 轻量级锁

@@ -5,7 +5,6 @@ categories: Java并发编程
 description: Java并发编程
 keywords: Java, Java并发编程
 ---
-
 ## 一、认识volatile关键字
 
 **程序举例**
@@ -48,22 +47,22 @@ public class ReaderAndUpdater {
 
 ```
 出现的问题，存在数据的不一致问题
-![1580808366102-c69ed9f2-ab60-4863-9c29-7dcfeee4a83f.png](https://cdn.nlark.com/yuque/0/2020/png/440247/1580808366102-c69ed9f2-ab60-4863-9c29-7dcfeee4a83f.png)
+![1580808366102-c69ed9f2-ab60-4863-9c29-7dcfeee4a83f.png](https://imgconvert.csdnimg.cn/aHR0cHM6Ly9jZG4ubmxhcmsuY29tL3l1cXVlLzAvMjAyMC9wbmcvNDQwMjQ3LzE1ODA4MDgzNjYxMDItYzY5ZWQ5ZjItYWI2MC00ODYzLTljMjktN2RjZmVlZTRhODNmLnBuZw?x-oss-process=image/format,png)
 
 解决方法：加volatile关键字
-![1580808515162-18500314-7597-42a0-b671-43b7e42e1385.png](https://cdn.nlark.com/yuque/0/2020/png/440247/1580808515162-18500314-7597-42a0-b671-43b7e42e1385.png)
+![1580808515162-18500314-7597-42a0-b671-43b7e42e1385.png](https://imgconvert.csdnimg.cn/aHR0cHM6Ly9jZG4ubmxhcmsuY29tL3l1cXVlLzAvMjAyMC9wbmcvNDQwMjQ3LzE1ODA4MDg1MTUxNjItMTg1MDAzMTQtNzU5Ny00MmEwLWI2NzEtNDNiN2U0MmUxMzg1LnBuZw?x-oss-process=image/format,png)
 
 ## 二、机器硬件CPU与JMM
 
 参考文章：[CPU Cache - 留一日白 - 博客园](https://www.cnblogs.com/lyrb/p/10718935.html)
 
 1.Cpu Cache模型
-![1593920-20190416194930030-166162338.png](https://img2018.cnblogs.com/blog/1593920/201904/1593920-20190416194930030-166162338.png)
+![1593920-20190416194930030-166162338.png](https://imgconvert.csdnimg.cn/aHR0cHM6Ly9pbWcyMDE4LmNuYmxvZ3MuY29tL2Jsb2cvMTU5MzkyMC8yMDE5MDQvMTU5MzkyMC0yMDE5MDQxNjE5NDkzMDAzMC0xNjYxNjIzMzgucG5n?x-oss-process=image/format,png)
 
-![1593920-20190416174053892-1557587328.png](https://img2018.cnblogs.com/blog/1593920/201904/1593920-20190416174053892-1557587328.png)
+![1593920-20190416174053892-1557587328.png](https://imgconvert.csdnimg.cn/aHR0cHM6Ly9pbWcyMDE4LmNuYmxvZ3MuY29tL2Jsb2cvMTU5MzkyMC8yMDE5MDQvMTU5MzkyMC0yMDE5MDQxNjE3NDA1Mzg5Mi0xNTU3NTg3MzI4LnBuZw?x-oss-process=image/format,png)
 
 2.cpu缓存的一致性问题
-![1580808884293-66652b20-367f-41f5-9428-46813e2101bc.png](https://cdn.nlark.com/yuque/0/2020/png/440247/1580808884293-66652b20-367f-41f5-9428-46813e2101bc.png)
+![1580808884293-66652b20-367f-41f5-9428-46813e2101bc.png](https://imgconvert.csdnimg.cn/aHR0cHM6Ly9jZG4ubmxhcmsuY29tL3l1cXVlLzAvMjAyMC9wbmcvNDQwMjQ3LzE1ODA4MDg4ODQyOTMtNjY2NTJiMjAtMzY3Zi00MWY1LTk0MjgtNDY4MTNlMjEwMWJjLnBuZw?x-oss-process=image/format,png)
 
 **解决方案**
 a. 总线加锁（粒度太大）
@@ -72,7 +71,7 @@ b. MESI
 - 2.写操作，发出信号通知其它cpu将该变量的CacheLine置为无效，其它的cpu要访问这个变量的时候，只能从内存中获取。
 
 c.Java内存模型
-![1593920-20190421223248015-2062686545.png](https://img2018.cnblogs.com/blog/1593920/201904/1593920-20190421223248015-2062686545.png)
+![1593920-20190421223248015-2062686545.png](https://imgconvert.csdnimg.cn/aHR0cHM6Ly9pbWcyMDE4LmNuYmxvZ3MuY29tL2Jsb2cvMTU5MzkyMC8yMDE5MDQvMTU5MzkyMC0yMDE5MDQyMTIyMzI0ODAxNS0yMDYyNjg2NTQ1LnBuZw?x-oss-process=image/format,png)
 
 - 1.主内存的数据所有线程都可以访问。
 - 2.每个线程都有自己的本地内存。

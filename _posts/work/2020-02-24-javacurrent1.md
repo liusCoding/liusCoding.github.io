@@ -29,7 +29,7 @@ JVM什么时候启动？
 JVM线程 -->  其他的线程（main）   线程在jvm中
 
 **JVM内存区域** 
-![webp](https://upload-images.jianshu.io/upload_images/10006199-a4108d8fb7810a71.jpeg?imageMogr2/auto-orient/strip|imageView2/2/format/webp)
+![webp](https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy8xMDAwNjE5OS1hNDEwOGQ4ZmI3ODEwYTcxLmpwZWc?x-oss-process=image/format,png)
 
 方法区：
 类的所有字段和方法字节码，以及一些特殊方法如构造函数，接口代码也在这里定义。简单来说，所有定义的方法的信息都保存在该区域，静态变量+常量+类信息（构造方法/接口定义）+运行时常量池都存在方法区中，虽然Java虚拟机规范把方法区描述为堆的一个逻辑部分，但是它却有一个别名叫做（Non-Heap）非堆，目的应该为了和Java的堆区分开（Jdk1.8以前hotspot虚拟机叫永久代，持久代，jdk时叫元空间）
@@ -63,7 +63,7 @@ Java线程执行方法的内存模型，一个线程对应一个栈，每个方�
 
 全称 Java Memory model 
 
-![webp](https://upload-images.jianshu.io/upload_images/4222138-96ca2a788ec29dc2.png?imageMogr2/auto-orient/strip|imageView2/2/w/579/format/webp)
+![webp](https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy80MjIyMTM4LTk2Y2EyYTc4OGVjMjlkYzIucG5n?x-oss-process=image/format,png)
 
 JMM定义了Java 虚拟机(JVM)在计算机内存(RAM)中的工作方式。JVM是整个计算机虚拟模型，所以JMM是隶属于JVM的。从抽象的角度来看，JMM定义了线程和主内存之间的抽象关系：线程之间的共享变量存储在主内存（Main Memory）中，每个线程都有一个私有的本地内存（Local Memory），本地内存中存储了该线程以读/写共享变量的副本。本地内存是JMM的一个抽象概念，并不真实存在。它涵盖了缓存、写缓冲区、寄存器以及其他的硬件和编译器优化。
 
@@ -79,7 +79,7 @@ JMM定义了Java 虚拟机(JVM)在计算机内存(RAM)中的工作方式。JVM�
 
 硬件内存架构
 
-![webp](https://upload-images.jianshu.io/upload_images/4222138-49df5535c55287c4.png?imageMogr2/auto-orient/strip|imageView2/2/w/562/format/webp)
+![webp](https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy80MjIyMTM4LTQ5ZGY1NTM1YzU1Mjg3YzQucG5n?x-oss-process=image/format,png)
 
 该内存架构带来的问题：
 
