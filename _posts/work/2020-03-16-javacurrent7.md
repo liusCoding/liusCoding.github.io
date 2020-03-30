@@ -5,22 +5,22 @@ categories: Java并发编程
 description: Java并发编程
 keywords: Java, Java并发编程
 ---
+
+
+
+
+
+
+
+
+
+
+
+
 <a name="yLVWK"></a>
-
-
-
-
-
-
-
-
-
-
-
-
 ### 一.AQS原理
 AQS全称为AbstractQueuedSynchronizer，它提供了一个FIFO队列，可以看成是一个用来实现锁以及其它涉及到同步功能的核心组件，常见的有：ReenTrantLock、CountDownLatch等。<br />
-<br />AQS是一个抽象类，主要是通过继承的方式来使用，它本身没有实现任何的同步接口，仅仅是定义了同步状态的获取以及释放的方法来提供自定义的同步组件。<br />![](https://cdn.nlark.com/yuque/0/2020/webp/440247/1584350866619-10ffbdba-4cd4-4966-bd3d-87f7c5371e17.webp#align=left&display=inline&height=590&originHeight=590&originWidth=504&size=0&status=done&style=none&width=504)<br />
+<br />AQS是一个抽象类，主要是通过继承的方式来使用，它本身没有实现任何的同步接口，仅仅是定义了同步状态的获取以及释放的方法来提供自定义的同步组件。<br />![](https://imgconvert.csdnimg.cn/aHR0cHM6Ly9jZG4ubmxhcmsuY29tL3l1cXVlLzAvMjAyMC93ZWJwLzQ0MDI0Ny8xNTg0MzUwODY2NjE5LTEwZmZiZGJhLTRjZDQtNDk2Ni1iZDNkLTg3ZjdjNTM3MWUxNy53ZWJw?x-oss-process=image/format,png#align=left&display=inline&height=590&originHeight=590&originWidth=504&size=0&status=done&style=none&width=504)<br />
 <br />**AQS的主要字段:**
 ```java
 /**
@@ -51,7 +51,7 @@ private volatile int state;
 | isHeldExclusively | 是否是独占模式，表示是否被当前线程占用 |
 
 
-![](https://cdn.nlark.com/yuque/0/2020/jpeg/440247/1584349818070-b7a81001-2d98-4308-abb8-31f27d34ae64.jpeg#align=left&display=inline&height=401&originHeight=401&originWidth=852&size=0&status=done&style=none&width=852)<br />head节点是队列初始化的时候一个节点，只表示位置，不代表实际的等待线程。head节点之后的节点就是获取锁失败进入等待队列的线程。接下来，我们打开AQS源码，看下Node节点都有哪些关键内容：
+![](https://imgconvert.csdnimg.cn/aHR0cHM6Ly9jZG4ubmxhcmsuY29tL3l1cXVlLzAvMjAyMC9qcGVnLzQ0MDI0Ny8xNTg0MzQ5ODE4MDcwLWI3YTgxMDAxLTJkOTgtNDMwOC1hYmI4LTMxZjI3ZDM0YWU2NC5qcGVn?x-oss-process=image/format,png#align=left&display=inline&height=401&originHeight=401&originWidth=852&size=0&status=done&style=none&width=852)<br />head节点是队列初始化的时候一个节点，只表示位置，不代表实际的等待线程。head节点之后的节点就是获取锁失败进入等待队列的线程。接下来，我们打开AQS源码，看下Node节点都有哪些关键内容：
 
 ```java
 static final class Node {
@@ -238,7 +238,7 @@ public class TestMyLock {
 
 }
 ```
-![image.png](https://cdn.nlark.com/yuque/0/2020/png/440247/1584497414121-38dc5d63-228b-499a-afa3-99f609dcb79a.png#align=left&display=inline&height=164&name=image.png&originHeight=164&originWidth=432&size=55900&status=done&style=none&width=432)
+![image.png](https://imgconvert.csdnimg.cn/aHR0cHM6Ly9jZG4ubmxhcmsuY29tL3l1cXVlLzAvMjAyMC9wbmcvNDQwMjQ3LzE1ODQ0OTc0MTQxMjEtMzhkYzVkNjMtMjI4Yi00OTlhLWFmYTMtOTlmNjA5ZGNiNzlhLnBuZw?x-oss-process=image/format,png#align=left&display=inline&height=164&name=image.png&originHeight=164&originWidth=432&size=55900&status=done&style=none&width=432)
 
 测试自定义锁的重入性：
 
@@ -271,7 +271,7 @@ public class TestMyLock2 {
 }
 
 ```
-![image.png](https://cdn.nlark.com/yuque/0/2020/png/440247/1584498550527-d4374e35-ea4b-4f9b-9f19-488be78fb77c.png#align=left&display=inline&height=120&name=image.png&originHeight=120&originWidth=268&size=26548&status=done&style=none&width=268)
+![image.png](https://imgconvert.csdnimg.cn/aHR0cHM6Ly9jZG4ubmxhcmsuY29tL3l1cXVlLzAvMjAyMC9wbmcvNDQwMjQ3LzE1ODQ0OTg1NTA1MjctZDQzNzRlMzUtZWE0Yi00ZjliLTlmMTktNDg4YmU3OGZiNzdjLnBuZw?x-oss-process=image/format,png#align=left&display=inline&height=120&name=image.png&originHeight=120&originWidth=268&size=26548&status=done&style=none&width=268)
 
 **测试ReentrantLock锁的重入性：**
 
@@ -302,7 +302,7 @@ public class TestMyLock2 {
 }
 
 ```
-![image.png](https://cdn.nlark.com/yuque/0/2020/png/440247/1584498637612-80f3041b-9c26-4395-8280-ab00774dcbdd.png#align=left&display=inline&height=196&name=image.png&originHeight=196&originWidth=385&size=62407&status=done&style=none&width=385)
+![image.png](https://imgconvert.csdnimg.cn/aHR0cHM6Ly9jZG4ubmxhcmsuY29tL3l1cXVlLzAvMjAyMC9wbmcvNDQwMjQ3LzE1ODQ0OTg2Mzc2MTItODBmMzA0MWItOWMyNi00Mzk1LTgyODAtYWIwMDc3NGRjYmRkLnBuZw?x-oss-process=image/format,png#align=left&display=inline&height=196&name=image.png&originHeight=196&originWidth=385&size=62407&status=done&style=none&width=385)
 
 <a name="3aI2r"></a>
 ### 三.AQS并发工具
@@ -366,7 +366,7 @@ public class TestCountDownLatch {
 }
 
 ```
-![image.png](https://cdn.nlark.com/yuque/0/2020/png/440247/1584501020801-4b0a30e4-a2ec-42da-940a-2f0363504658.png#align=left&display=inline&height=291&name=image.png&originHeight=291&originWidth=494&size=105278&status=done&style=none&width=494)
+![image.png](https://imgconvert.csdnimg.cn/aHR0cHM6Ly9jZG4ubmxhcmsuY29tL3l1cXVlLzAvMjAyMC9wbmcvNDQwMjQ3LzE1ODQ1MDEwMjA4MDEtNGIwYTMwZTQtYTJlYy00MmRhLTk0MGEtMmYwMzYzNTA0NjU4LnBuZw?x-oss-process=image/format,png#align=left&display=inline&height=291&name=image.png&originHeight=291&originWidth=494&size=105278&status=done&style=none&width=494)
 
 
 <a name="PEppN"></a>
@@ -405,16 +405,16 @@ public class TestCyclicBarrier {
 }
 ```
 
-执行结果：<br />![image.png](https://cdn.nlark.com/yuque/0/2020/png/440247/1584502145544-7f46ff79-bfde-49cb-a689-84aade4b6c50.png#align=left&display=inline&height=263&name=image.png&originHeight=263&originWidth=443&size=89301&status=done&style=none&width=443)
+执行结果：<br />![image.png](https://imgconvert.csdnimg.cn/aHR0cHM6Ly9jZG4ubmxhcmsuY29tL3l1cXVlLzAvMjAyMC9wbmcvNDQwMjQ3LzE1ODQ1MDIxNDU1NDQtN2Y0NmZmNzktYmZkZS00OWNiLWE2ODktODRhYWRlNGI2YzUwLnBuZw?x-oss-process=image/format,png#align=left&display=inline&height=263&name=image.png&originHeight=263&originWidth=443&size=89301&status=done&style=none&width=443)
 
 <a name="ZJ49J"></a>
-#### 3.Semaphore 
-  适合资源有限的场景
+#### 3.Semaphore 
+  适合资源有限的场景
 
-  Semaphore是一种在多线程环境下使用的设施，该设施负责协调各个线程，以保证它们能够正确、合理的使用公共资源的设施，也是操作系统中用于控制进程同步互斥的量。Semaphore是一种计数信号量，用于管理一组资源，内部是基于AQS的共享模式。它相当于给线程规定一个量从而控制允许活动的线程数。
+  Semaphore是一种在多线程环境下使用的设施，该设施负责协调各个线程，以保证它们能够正确、合理的使用公共资源的设施，也是操作系统中用于控制进程同步互斥的量。Semaphore是一种计数信号量，用于管理一组资源，内部是基于AQS的共享模式。它相当于给线程规定一个量从而控制允许活动的线程数。
 
 
-**工作原理：**<br />     以一个停车场是运作为例。为了简单起见，假设停车场只有三个车位，一开始三个车位都是空的。这时如果同时来了五辆车，看门人允许其中三辆不受阻碍的进入，然后放下车拦，剩下的车则必须在入口等待，此后来的车也都不得不在入口处等待。这时，有一辆车离开停车场，看门人得知后，打开车拦，放入一辆，如果又离开两辆，则又可以放入两辆，如此往复。这个停车系统中，每辆车就好比一个线程，看门人就好比一个信号量，看门人限制了可以活动的线程。假如里面依然是三个车位，但是看门人改变了规则，要求每次只能停两辆车，那么一开始进入两辆车，后面得等到有车离开才能有车进入，但是得保证最多停两辆车。对于Semaphore类而言，就如同一个看门人，限制了可活动的线程数。
+**工作原理：**<br />     以一个停车场是运作为例。为了简单起见，假设停车场只有三个车位，一开始三个车位都是空的。这时如果同时来了五辆车，看门人允许其中三辆不受阻碍的进入，然后放下车拦，剩下的车则必须在入口等待，此后来的车也都不得不在入口处等待。这时，有一辆车离开停车场，看门人得知后，打开车拦，放入一辆，如果又离开两辆，则又可以放入两辆，如此往复。这个停车系统中，每辆车就好比一个线程，看门人就好比一个信号量，看门人限制了可以活动的线程。假如里面依然是三个车位，但是看门人改变了规则，要求每次只能停两辆车，那么一开始进入两辆车，后面得等到有车离开才能有车进入，但是得保证最多停两辆车。对于Semaphore类而言，就如同一个看门人，限制了可活动的线程数。
 
 **semaphore主要方法：**
 
@@ -431,7 +431,7 @@ void release():释放一个许可，将其返回给信号量。就如同车开�
 
 void release(int n):释放n个许可。
 
-int availablePermits()：当前可用的许可数。
+int availablePermits()：当前可用的许可数。
 ```
 
 **实例说明：**
@@ -480,4 +480,4 @@ public class TestSemaphore {
 
 ```
 
-执行结果：<br />![image.png](https://cdn.nlark.com/yuque/0/2020/png/440247/1584506013398-8b27d196-d820-4140-8e00-7f06787d7446.png#align=left&display=inline&height=401&name=image.png&originHeight=401&originWidth=807&size=298828&status=done&style=none&width=807)
+执行结果：<br />![image.png](https://imgconvert.csdnimg.cn/aHR0cHM6Ly9jZG4ubmxhcmsuY29tL3l1cXVlLzAvMjAyMC9wbmcvNDQwMjQ3LzE1ODQ1MDYwMTMzOTgtOGIyN2QxOTYtZDgyMC00MTQwLThlMDAtN2YwNjc4N2Q3NDQ2LnBuZw?x-oss-process=image/format,png#align=left&display=inline&height=401&name=image.png&originHeight=401&originWidth=807&size=298828&status=done&style=none&width=807)
