@@ -8,16 +8,12 @@ keywords: Java, Java并发编程
 
 
 
+AQS全称为AbstractQueuedSynchronizer，它提供了一个FIFO队列，可以看成是一个用来实现锁以及其它涉及到同步功能的核心组件
 
 
 
 
 
-
-
-
-
-<a name="yLVWK"></a>
 ### 一.AQS原理
 AQS全称为AbstractQueuedSynchronizer，它提供了一个FIFO队列，可以看成是一个用来实现锁以及其它涉及到同步功能的核心组件，常见的有：ReenTrantLock、CountDownLatch等。<br />
 <br />AQS是一个抽象类，主要是通过继承的方式来使用，它本身没有实现任何的同步接口，仅仅是定义了同步状态的获取以及释放的方法来提供自定义的同步组件。<br />![](https://imgconvert.csdnimg.cn/aHR0cHM6Ly9jZG4ubmxhcmsuY29tL3l1cXVlLzAvMjAyMC93ZWJwLzQ0MDI0Ny8xNTg0MzUwODY2NjE5LTEwZmZiZGJhLTRjZDQtNDk2Ni1iZDNkLTg3ZjdjNTM3MWUxNy53ZWJw?x-oss-process=image/format,png#align=left&display=inline&height=590&originHeight=590&originWidth=504&size=0&status=done&style=none&width=504)<br />
@@ -304,7 +300,7 @@ public class TestMyLock2 {
 ```
 ![image.png](https://imgconvert.csdnimg.cn/aHR0cHM6Ly9jZG4ubmxhcmsuY29tL3l1cXVlLzAvMjAyMC9wbmcvNDQwMjQ3LzE1ODQ0OTg2Mzc2MTItODBmMzA0MWItOWMyNi00Mzk1LTgyODAtYWIwMDc3NGRjYmRkLnBuZw?x-oss-process=image/format,png#align=left&display=inline&height=196&name=image.png&originHeight=196&originWidth=385&size=62407&status=done&style=none&width=385)
 
-<a name="3aI2r"></a>
+
 ### 三.AQS并发工具
 <a name="PYMEI"></a>
 #### 1.CountDownLatch
@@ -369,7 +365,6 @@ public class TestCountDownLatch {
 ![image.png](https://imgconvert.csdnimg.cn/aHR0cHM6Ly9jZG4ubmxhcmsuY29tL3l1cXVlLzAvMjAyMC9wbmcvNDQwMjQ3LzE1ODQ1MDEwMjA4MDEtNGIwYTMwZTQtYTJlYy00MmRhLTk0MGEtMmYwMzYzNTA0NjU4LnBuZw?x-oss-process=image/format,png#align=left&display=inline&height=291&name=image.png&originHeight=291&originWidth=494&size=105278&status=done&style=none&width=494)
 
 
-<a name="PEppN"></a>
 #### 2.CyclicBarrier
 现实生活中我们经常会遇到这样的情景，在进行某个活动前需要等待人全部都齐了才开始。例如吃饭时要等全家人都上座了才动筷子，旅游时要等全部人都到齐了才出发，比赛时要等运动员都上场后才开始。
 
@@ -407,7 +402,6 @@ public class TestCyclicBarrier {
 
 执行结果：<br />![image.png](https://imgconvert.csdnimg.cn/aHR0cHM6Ly9jZG4ubmxhcmsuY29tL3l1cXVlLzAvMjAyMC9wbmcvNDQwMjQ3LzE1ODQ1MDIxNDU1NDQtN2Y0NmZmNzktYmZkZS00OWNiLWE2ODktODRhYWRlNGI2YzUwLnBuZw?x-oss-process=image/format,png#align=left&display=inline&height=263&name=image.png&originHeight=263&originWidth=443&size=89301&status=done&style=none&width=443)
 
-<a name="ZJ49J"></a>
 #### 3.Semaphore 
   适合资源有限的场景
 
@@ -480,4 +474,5 @@ public class TestSemaphore {
 
 ```
 
-执行结果：<br />![image.png](https://imgconvert.csdnimg.cn/aHR0cHM6Ly9jZG4ubmxhcmsuY29tL3l1cXVlLzAvMjAyMC9wbmcvNDQwMjQ3LzE1ODQ1MDYwMTMzOTgtOGIyN2QxOTYtZDgyMC00MTQwLThlMDAtN2YwNjc4N2Q3NDQ2LnBuZw?x-oss-process=image/format,png#align=left&display=inline&height=401&name=image.png&originHeight=401&originWidth=807&size=298828&status=done&style=none&width=807)
+执行结果：<br />
+![image.png](https://imgconvert.csdnimg.cn/aHR0cHM6Ly9jZG4ubmxhcmsuY29tL3l1cXVlLzAvMjAyMC9wbmcvNDQwMjQ3LzE1ODQ1MDYwMTMzOTgtOGIyN2QxOTYtZDgyMC00MTQwLThlMDAtN2YwNjc4N2Q3NDQ2LnBuZw?x-oss-process=image/format,png#align=left&display=inline&height=401&name=image.png&originHeight=401&originWidth=807&size=298828&status=done&style=none&width=807)

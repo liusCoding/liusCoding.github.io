@@ -8,7 +8,7 @@ keywords: Java, Java并发编程
 
 模式是脱离语言的。
 
-<a name="kVc2w"></a>
+
 ### 一、单例的模式由来
 
 多线程要操作同一个对象，保证对象的唯一性。
@@ -34,7 +34,6 @@ keywords: Java, Java并发编程
 - 枚举模式
 
 
-<a name="q2iMn"></a>
 ### 二、单例模式的分类
 
 <a name="KvDNa"></a>
@@ -81,7 +80,7 @@ public class HungrySingleton {
 - 效率问题
   - 没有延迟加载，如果创建后不被使用，占内存，影响性能
 
-<a name="PzEvW"></a>
+
 #### 2.懒汉式
 
 ```java
@@ -176,7 +175,6 @@ public class DCLSingleton {
 <br />![image.png](https://imgconvert.csdnimg.cn/aHR0cHM6Ly9jZG4ubmxhcmsuY29tL3l1cXVlLzAvMjAyMC9wbmcvNDQwMjQ3LzE1ODQyNDQzNzAxMjItNDYzNWQ2MDctZTFlZC00ZWYzLThiYjktZjAzNDhiZWMzMTc0LnBuZw?x-oss-process=image/format,png#align=left&display=inline&height=640&name=image.png&originHeight=640&originWidth=1142&size=161634&status=done&style=none&width=1142)
 
 
-<a name="o4cMJ"></a>
 #### 4.双重检索（DCL）+ volatile
 ```java
 public class DCLSingleton {
@@ -271,7 +269,6 @@ public class Singleton {
 那么，是不是可以说静态内部类单例就是最完美的单例模式了呢？其实不然，静态内部类也有着一个致命的缺点，就是传参的问题，由于是静态内部类的形式去创建单例的，故外部无法传递参数进去，例如Context这种参数，所以，我们创建单例时，可以在静态内部类与DCL模式里自己斟酌。
 
 
-<a name="VVzNi"></a>
 ####  6.枚举模式
 
 ```java

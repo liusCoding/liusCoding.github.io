@@ -7,18 +7,11 @@ keywords: Java, Java并发编程
 ---
 
 
+CAS（compare And Swap），中文叫比较交换，是一种无锁原子算法。
 
 
 
 
-
-
-
-
-
-
-
-<a name="RqQgw"></a>
 ### 一.什么是CAS？
 CAS（compare And Swap），中文叫比较交换，是一种无锁原子算法。<br />过程是这样：
 > 它包含3个参数CAS （V,E,N）,V 表示要更新变量的值，E表示预期值，，N表示新值。仅当V值等于E值时，才会将V的值设为N，如果V值和E值不同，则说明已经有其它线程做了更新，则当前线程则什么都不做，最后，CAS返回当前V的真实值。CAS操作时抱着乐观的态度进行的，它总是认为自己可以成功完成操作。
@@ -56,7 +49,6 @@ CPU实现指令有2种方式：
 > 1. 有些处理器不支持缓存锁定，对于 Intel 486 和 Pentium 处理器，就是锁定的内存区域在处理器的缓存行也会调用总线锁定。
 
 
-<a name="WoKPM"></a>
 ### 三.举例说明
 
 ```java
@@ -107,7 +99,7 @@ public class TestCAS {
 结果是：![image.png](https://imgconvert.csdnimg.cn/aHR0cHM6Ly9jZG4ubmxhcmsuY29tL3l1cXVlLzAvMjAyMC9wbmcvNDQwMjQ3LzE1ODQzMjY5NzM0OTMtOTA2ZmUzMjAtNTg2YS00M2EwLTg4MTMtMTU5ODVjOGIwYzIwLnBuZw?x-oss-process=image/format,png#align=left&display=inline&height=128&name=image.png&originHeight=128&originWidth=355&size=39610&status=done&style=none&width=355)
 
 
-<a name="b6xL1"></a>
+
 ### 四.源码分析
 
 JUC下的atomic类都是通过CAS来实现的，下面就以AtomicInteger为例来说明CAS的实现，如图：<br />![image.png](https://imgconvert.csdnimg.cn/aHR0cHM6Ly9jZG4ubmxhcmsuY29tL3l1cXVlLzAvMjAyMC9wbmcvNDQwMjQ3LzE1ODQzMjc1NDgwNDEtNThjM2FmZGYtZDUyYi00MmM0LWIzY2MtMDFhM2QwODJkYWJlLnBuZw?x-oss-process=image/format,png#align=left&display=inline&height=674&name=image.png&originHeight=674&originWidth=932&size=54230&status=done&style=none&width=932)<br />![image.png](https://imgconvert.csdnimg.cn/aHR0cHM6Ly9jZG4ubmxhcmsuY29tL3l1cXVlLzAvMjAyMC9wbmcvNDQwMjQ3LzE1ODQzMjc3NTQyNzMtOGQzZTEwOGQtODI4YS00ZjNjLWIzZjktODhjZDE5NWQxZmU1LnBuZw?x-oss-process=image/format,png#align=left&display=inline&height=407&name=image.png&originHeight=407&originWidth=856&size=479522&status=done&style=none&width=856)<br />![image.png](https://imgconvert.csdnimg.cn/aHR0cHM6Ly9jZG4ubmxhcmsuY29tL3l1cXVlLzAvMjAyMC9wbmcvNDQwMjQ3LzE1ODQzMjc3OTE5MzctZjVhZWNlYTAtNGJiZC00ZGY1LTg2MDAtMjFhOTJmZjNlYTdkLnBuZw?x-oss-process=image/format,png#align=left&display=inline&height=332&name=image.png&originHeight=332&originWidth=681&size=162033&status=done&style=none&width=681)<br />![image.png](https://imgconvert.csdnimg.cn/aHR0cHM6Ly9jZG4ubmxhcmsuY29tL3l1cXVlLzAvMjAyMC9wbmcvNDQwMjQ3LzE1ODQzMjc4MDgzNDctNDc2ZjExYmEtNDExMS00NTAzLTg4NGItOWE4YmU5ZTEwOWIyLnBuZw?x-oss-process=image/format,png#align=left&display=inline&height=203&name=image.png&originHeight=203&originWidth=805&size=46222&status=done&style=none&width=805)<br />
