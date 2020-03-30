@@ -17,7 +17,7 @@ keywords: Java, Java并发编程
 > 实例化过程只实例化一次。
 
 
-单例模式的四大原则 
+单例模式的四大原则 
 
 > 1.构造方法私有化
 > 2.以静态方法或者枚举返回实例
@@ -173,7 +173,7 @@ public class DCLSingleton {
 
 优化后会导致什么问题呢? 我们假设线程A先执行getInstance（）方法，当执行完指令2时恰好发生了线程切换，切换了线程上B上；如果此时线程B也执行getInstance（）方法，那么线程B 在执行第一个判断时会发现instance != null ，所以直接返回instance，而此时的instance是没有初始化过的，如果我们这个时候访问instance的成员变量就可能会触发空指针异常。
 
-<br />![image.png](https://cdn.nlark.com/yuque/0/2020/png/440247/1584244370122-4635d607-e1ed-4ef3-8bb9-f0348bec3174.png#align=left&display=inline&height=640&name=image.png&originHeight=640&originWidth=1142&size=161634&status=done&style=none&width=1142)
+<br />![image.png](https://imgconvert.csdnimg.cn/aHR0cHM6Ly9jZG4ubmxhcmsuY29tL3l1cXVlLzAvMjAyMC9wbmcvNDQwMjQ3LzE1ODQyNDQzNzAxMjItNDYzNWQ2MDctZTFlZC00ZWYzLThiYjktZjAzNDhiZWMzMTc0LnBuZw?x-oss-process=image/format,png#align=left&display=inline&height=640&name=image.png&originHeight=640&originWidth=1142&size=161634&status=done&style=none&width=1142)
 
 
 <a name="o4cMJ"></a>
@@ -272,7 +272,7 @@ public class Singleton {
 
 
 <a name="VVzNi"></a>
-####  6.枚举模式
+####  6.枚举模式
 
 ```java
 public class EnumSingleton {
