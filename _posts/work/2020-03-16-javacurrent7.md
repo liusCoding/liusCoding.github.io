@@ -6,6 +6,18 @@ description: Java并发编程
 keywords: Java, Java并发编程
 ---
 <a name="yLVWK"></a>
+
+
+
+
+
+
+
+
+
+
+
+
 ### 一.AQS原理
 AQS全称为AbstractQueuedSynchronizer，它提供了一个FIFO队列，可以看成是一个用来实现锁以及其它涉及到同步功能的核心组件，常见的有：ReenTrantLock、CountDownLatch等。<br />
 <br />AQS是一个抽象类，主要是通过继承的方式来使用，它本身没有实现任何的同步接口，仅仅是定义了同步状态的获取以及释放的方法来提供自定义的同步组件。<br />![](https://cdn.nlark.com/yuque/0/2020/webp/440247/1584350866619-10ffbdba-4cd4-4966-bd3d-87f7c5371e17.webp#align=left&display=inline&height=590&originHeight=590&originWidth=504&size=0&status=done&style=none&width=504)<br />
